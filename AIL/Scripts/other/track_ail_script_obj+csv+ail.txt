@@ -1,0 +1,35 @@
+import struct
+import pandas as pd
+
+# Arquivos de entrada
+input_obj = "track_points.obj"
+input_csv = "track_params.csv"
+output_ail = "new_track.ail"
+
+# 1?? Ler vértices do OBJ
+points = []
+
+with open(input_obj, "r") as f:
+    for line in f:
+        if line.startswith("v "):
+            parts = line.strip().split()
+            if len(parts) == 4:
+                x, y, z = map(float, parts[1:4])
+                points.append([x, y, z])
+
+print(f"Encontrou {len(points)} vértices no OBJ")
+
+# 2?? Ler parâmetros do CSV
+df = pd.read_csv(input_csv)
+params = df['Param'].tolist()
+
+if len(params) != len(points):
+    raise ValueError("Erro: número de vértices no OBJ é diferente do número de parâmetros no CSV!")
+
+# 3?? Escrever o AIL
+with open(output_ail, "wb") as f:
+    f.write(b'AILD')  # Assinatura mágica
+    for (x, y, z), param in zip(points, params):
+        f.write(struct.pack('<ffff', x, y, z, param))
+
+print(f"Arquivo AIL salvo como: {output_ail}")

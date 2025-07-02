@@ -1,0 +1,28 @@
+import struct
+
+# Caminhos de entrada/saída
+input_obj = "track_points.obj"
+output_ail = "new_track.ail"
+
+# Valor padrão para o parâmetro extra (ex: largura/banking)
+default_param = 5.0
+
+# Lê o OBJ
+points = []
+
+with open(input_obj, "r") as f:
+    for line in f:
+        if line.startswith("v "):
+            parts = line.strip().split()
+            if len(parts) == 4:
+                x, y, z = map(float, parts[1:4])
+                points.append([x, y, z, default_param])
+
+# Escreve o .AIL
+with open(output_ail, "wb") as f:
+    # Escreve a assinatura mágica "AILD"
+    f.write(b'AILD')
+    for p in points:
+        f.write(struct.pack('<ffff', *p))
+
+print(f"Arquivo AIL salvo como: {output_ail}")

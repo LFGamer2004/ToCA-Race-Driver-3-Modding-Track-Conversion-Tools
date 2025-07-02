@@ -1,0 +1,10 @@
+?? O que indica:
+
+
+Há blocos misturando inteiros (4 bytes) e possíveis floats (4 bytes).
+
+
+Sequências como 3e76 e 3ecd são coerentes com floats pequenos (~0.24 / 0.4) — sugerindo coordenadas ou parâmetros de IA.
+
+
+O padrão do nome .AIT sugere algo como AI Trajectory, AI Track, AI Trigger.

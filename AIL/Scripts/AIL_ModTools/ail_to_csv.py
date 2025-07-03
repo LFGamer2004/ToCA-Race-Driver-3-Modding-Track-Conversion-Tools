@@ -3,7 +3,7 @@ import struct
 import csv
 import json
 
-INPUT_FILE = "phi1.ail"
+INPUT_FILE = "eur1.ail"
 
 with open(INPUT_FILE, "rb") as f:
     data = f.read()

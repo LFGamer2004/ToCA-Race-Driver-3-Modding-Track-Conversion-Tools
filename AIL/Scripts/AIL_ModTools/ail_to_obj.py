@@ -1,7 +1,7 @@
 
 import struct
 
-input_file = "phi1.ail"
+input_file = "eur1.ail"
 output_file = "track_points.obj"
 
 with open(input_file, "rb") as f:

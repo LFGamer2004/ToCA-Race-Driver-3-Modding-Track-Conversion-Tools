@@ -1,7 +1,7 @@
 
 import struct
 
-input_file = "eur.aid"
+input_file = "sea.aid"
 output_file = "track_points.obj"
 
 with open(input_file, "rb") as f:

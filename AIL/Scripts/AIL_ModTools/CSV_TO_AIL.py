@@ -1,7 +1,7 @@
 ﻿import struct
 import csv
 
-OUTPUT_FILE = "output.ail"
+OUTPUT_FILE = "eur1.ail"
 
 vertices = []
 connections = []

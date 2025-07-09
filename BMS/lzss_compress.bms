@@ -1,0 +1,7 @@
+get fileName basename
+get fileSize ASIZE
+string fileName + ".compressed"
+
+math fileZSize = fileSize  # Set an initial size for the compressed output
+comtype lzss_compress
+clog fileName 0 fileSize fileZSize

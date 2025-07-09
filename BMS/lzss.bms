@@ -1,0 +1,4 @@
+comtype lzss
+get ZSIZE asize
+xmath SIZE "ZSIZE * 10"
+clog "decompressed.xml" 0 ZSIZE SIZE
